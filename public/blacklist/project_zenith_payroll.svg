@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14081c" />
+      <stop offset="50%" stop-color="#0c0412" />
+      <stop offset="100%" stop-color="#040106" />
+    </linearGradient>
+    <linearGradient id="purpleGold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d946ef" />
+      <stop offset="100%" stop-color="#ffd700" />
+    </linearGradient>
+    <linearGradient id="cardGrad4" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(217, 70, 239, 0.08)" />
+      <stop offset="100%" stop-color="rgba(20, 8, 28, 0.7)" />
+    </linearGradient>
+    <pattern id="gridPattern4" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="rgba(217, 70, 239, 0.08)" stroke-width="1" />
+    </pattern>
+    <filter id="glowPurple">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="340" fill="url(#bgGrad4)" />
+  <rect width="600" height="340" fill="url(#gridPattern4)" />
+
+  <!-- Accent lines -->
+  <path d="M-20 60 L140 -20 M520 360 L620 260" stroke="rgba(217,70,239,0.18)" stroke-width="2" />
+
+  <!-- Top Header Bar -->
+  <rect x="24" y="20" width="552" height="38" fill="rgba(15,5,20,0.9)" stroke="#d946ef" stroke-width="1.5" />
+  <path d="M24 20 L40 20 L32 58 L24 58 Z" fill="#d946ef" />
+  <text x="50" y="44" font-family="'Orbitron', 'Impact', sans-serif" font-size="13" font-weight="700" fill="#d946ef" letter-spacing="2">// BLACKLIST #04 : ZENITH HIGH-FREQUENCY API</text>
+  <rect x="424" y="28" width="140" height="22" fill="#ffd700" rx="2" />
+  <text x="494" y="43" font-family="monospace" font-size="10" font-weight="700" fill="#000" text-anchor="middle">45% LATENCY DROP</text>
+
+  <!-- Database Query & Cache Pipeline -->
+  <rect x="24" y="70" width="350" height="246" fill="url(#cardGrad4)" stroke="rgba(217,70,239,0.3)" stroke-width="1.5" />
+  <text x="40" y="96" font-family="'Orbitron', sans-serif" font-size="11" font-weight="700" fill="#ffd700" letter-spacing="1.5">MULTI-TENANT CACHING ARCHITECTURE</text>
+
+  <!-- Relational Queries -->
+  <g transform="translate(42, 114)">
+    <rect width="130" height="60" fill="#1b0a24" stroke="#d946ef" stroke-width="1.5" rx="3" />
+    <text x="65" y="22" font-family="sans-serif" font-size="9" font-weight="700" fill="#d946ef" text-anchor="middle">SEQUELIZE / PG</text>
+    <text x="65" y="38" font-family="monospace" font-size="8" fill="#fff" text-anchor="middle">Enterprise Payroll</text>
+    <text x="65" y="50" font-family="monospace" font-size="8" fill="#ffd700" text-anchor="middle">500+ Employee Ledger</text>
+  </g>
+
+  <!-- Flow to Redis -->
+  <g transform="translate(182, 134)">
+    <line x1="0" y1="10" x2="34" y2="10" stroke="#ffd700" stroke-width="2" stroke-dasharray="3 2" />
+    <polygon points="34,10 28,6 28,14" fill="#ffd700" />
+    <text x="17" y="2" font-family="monospace" font-size="7" fill="#d946ef" text-anchor="middle">HOT PATH</text>
+  </g>
+
+  <!-- Redis Cache Tier -->
+  <g transform="translate(226, 114)">
+    <rect width="130" height="60" fill="#1b0a24" stroke="#ffd700" stroke-width="1.5" rx="3" />
+    <text x="65" y="22" font-family="sans-serif" font-size="9" font-weight="700" fill="#ffd700" text-anchor="middle">REDIS MULTI-TENANT</text>
+    <text x="65" y="38" font-family="monospace" font-size="8" fill="#fff" text-anchor="middle">Targeted Invalidation</text>
+    <text x="65" y="50" font-family="monospace" font-size="8" fill="#00e5ff" text-anchor="middle">Zero Data Leaks</text>
+  </g>
+
+  <!-- Benchmark Comparison -->
+  <g transform="translate(42, 186)">
+    <rect width="314" height="54" fill="#0d0412" stroke="rgba(217,70,239,0.4)" stroke-width="1" />
+    <text x="14" y="18" font-family="monospace" font-size="8" font-weight="700" fill="#ffd700">API RESPONSE LATENCY BENCHMARK</text>
+
+    <!-- Before -->
+    <text x="14" y="34" font-family="monospace" font-size="8" fill="#ff4444">BEFORE OPTIMIZATION: 280ms</text>
+    <rect x="180" y="25" width="130" height="8" fill="#ff4444" opacity="0.6" />
+
+    <!-- After -->
+    <text x="14" y="48" font-family="monospace" font-size="8" fill="#00e5ff">AFTER REDIS CACHE:  42ms</text>
+    <rect x="180" y="39" width="36" height="8" fill="#00e5ff" />
+  </g>
+
+  <!-- Bottom Metric Box -->
+  <rect x="42" y="252" width="314" height="50" fill="#0d0412" stroke="rgba(255,215,0,0.4)" stroke-width="1" />
+  <text x="56" y="272" font-family="sans-serif" font-size="8" font-weight="700" fill="#aaa">AVG LATENCY CUT</text>
+  <text x="56" y="290" font-family="'Orbitron', sans-serif" font-size="13" font-weight="700" fill="#ffd700">-45% FASTER</text>
+  <text x="200" y="272" font-family="sans-serif" font-size="8" font-weight="700" fill="#aaa">USER CAPACITY</text>
+  <text x="200" y="290" font-family="'Orbitron', sans-serif" font-size="13" font-weight="700" fill="#d946ef">500+ ACTIVE USERS</text>
+
+  <!-- Right: Stack Badges -->
+  <rect x="386" y="70" width="190" height="246" fill="url(#cardGrad4)" stroke="rgba(217,70,239,0.3)" stroke-width="1.5" />
+  <text x="402" y="96" font-family="'Orbitron', sans-serif" font-size="11" font-weight="700" fill="#d946ef" letter-spacing="1">API SPECS</text>
+
+  <!-- Graph -->
+  <g transform="translate(402, 114)">
+    <rect width="158" height="80" fill="#0b0310" stroke="rgba(217,70,239,0.2)" stroke-width="1" />
+    <path d="M 0 65 L 30 50 L 60 55 L 90 20 L 120 25 L 158 10" fill="none" stroke="#d946ef" stroke-width="2" filter="url(#glowPurple)" />
+    <path d="M 0 70 L 30 60 L 60 40 L 90 35 L 120 18 L 158 8" fill="none" stroke="#ffd700" stroke-width="1.5" />
+    <text x="8" y="16" font-family="monospace" font-size="8" fill="#ffd700">QUERY THROUGHPUT</text>
+  </g>
+
+  <!-- Chips -->
+  <g transform="translate(402, 218)">
+    <rect x="0" y="0" width="74" height="22" fill="#1b0a24" stroke="#d946ef" stroke-width="1" />
+    <text x="37" y="15" font-family="sans-serif" font-size="8" font-weight="700" fill="#fff" text-anchor="middle">Sequelize</text>
+
+    <rect x="80" y="0" width="74" height="22" fill="#1b0a24" stroke="#ffd700" stroke-width="1" />
+    <text x="117" y="15" font-family="sans-serif" font-size="8" font-weight="700" fill="#ffd700" text-anchor="middle">PostgreSQL</text>
+
+    <rect x="0" y="28" width="74" height="22" fill="#1b0a24" stroke="#ffd700" stroke-width="1" />
+    <text x="37" y="43" font-family="sans-serif" font-size="8" font-weight="700" fill="#ffd700" text-anchor="middle">Redis Cache</text>
+
+    <rect x="80" y="28" width="74" height="22" fill="#1b0a24" stroke="#00e5ff" stroke-width="1" />
+    <text x="117" y="43" font-family="sans-serif" font-size="8" font-weight="700" fill="#00e5ff" text-anchor="middle">Express API</text>
+  </g>
+</svg>

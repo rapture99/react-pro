@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141008" />
+      <stop offset="50%" stop-color="#0a0804" />
+      <stop offset="100%" stop-color="#030302" />
+    </linearGradient>
+    <linearGradient id="goldGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffd700" />
+      <stop offset="100%" stop-color="#ff9900" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255, 215, 0, 0.08)" />
+      <stop offset="100%" stop-color="rgba(20, 16, 8, 0.6)" />
+    </linearGradient>
+    <pattern id="gridPattern1" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="rgba(255, 215, 0, 0.07)" stroke-width="1" />
+    </pattern>
+    <filter id="glowEffect" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="340" fill="url(#bgGrad1)" />
+  <rect width="600" height="340" fill="url(#gridPattern1)" />
+
+  <!-- Diagonal Hazard Accent Lines -->
+  <path d="M-20 80 L180 -20 M-20 120 L220 -20 M500 360 L620 240 M540 360 L620 280" stroke="rgba(255,215,0,0.12)" stroke-width="2" />
+
+  <!-- Top Status Bar -->
+  <rect x="24" y="20" width="552" height="38" fill="rgba(10,8,5,0.85)" stroke="#ffd700" stroke-width="1.5" />
+  <path d="M24 20 L40 20 L32 58 L24 58 Z" fill="#ffd700" />
+  <text x="50" y="44" font-family="'Orbitron', 'Impact', sans-serif" font-size="13" font-weight="700" fill="#ffd700" letter-spacing="2">// MOST WANTED #01 : FULL-STACK ARCHITECTURE CORE</text>
+  <rect x="470" y="28" width="94" height="22" fill="#ffd700" rx="2" />
+  <text x="517" y="43" font-family="monospace" font-size="10" font-weight="700" fill="#000" text-anchor="middle">LIVE ENGINE</text>
+
+  <!-- Left: Architecture Flow Block -->
+  <rect x="24" y="70" width="340" height="246" fill="url(#cardGrad)" stroke="rgba(255,215,0,0.25)" stroke-width="1.5" />
+  <text x="40" y="96" font-family="'Orbitron', 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#ffd700" letter-spacing="1.5">ENTERPRISE SYSTEM TOPOLOGY</text>
+
+  <!-- Node 1: Client / App -->
+  <g transform="translate(42, 114)">
+    <rect width="84" height="42" fill="#181308" stroke="#ffd700" stroke-width="1" />
+    <text x="42" y="20" font-family="sans-serif" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">CLIENT APPS</text>
+    <text x="42" y="33" font-family="monospace" font-size="8" fill="#ffd700" text-anchor="middle">React / Native</text>
+  </g>
+
+  <!-- Arrow 1 -->
+  <path d="M126 135 L160 135" stroke="#ffd700" stroke-width="2" stroke-dasharray="3 2" />
+  <polygon points="160,135 154,131 154,139" fill="#ffd700" />
+
+  <!-- Node 2: API Gateway -->
+  <g transform="translate(162, 114)">
+    <rect width="90" height="42" fill="#1f180a" stroke="#ffd700" stroke-width="1.5" />
+    <text x="45" y="20" font-family="sans-serif" font-size="9" font-weight="700" fill="#ffd700" text-anchor="middle">NODE.JS REST</text>
+    <text x="45" y="33" font-family="monospace" font-size="8" fill="#aaa" text-anchor="middle">50K+ req/day</text>
+  </g>
+
+  <!-- Arrow 2 -->
+  <path d="M252 135 L286 135" stroke="#ffd700" stroke-width="2" stroke-dasharray="3 2" />
+  <polygon points="286,135 280,131 280,139" fill="#ffd700" />
+
+  <!-- Node 3: Redis Cache -->
+  <g transform="translate(288, 114)">
+    <rect width="64" height="42" fill="#291208" stroke="#ff5500" stroke-width="1.5" />
+    <text x="32" y="20" font-family="sans-serif" font-size="9" font-weight="700" fill="#ff7733" text-anchor="middle">REDIS</text>
+    <text x="32" y="33" font-family="monospace" font-size="8" fill="#ffd700" text-anchor="middle">-45% ms</text>
+  </g>
+
+  <!-- Node 4: Database & Cloud Tier -->
+  <g transform="translate(42, 180)">
+    <rect width="138" height="54" fill="#14120c" stroke="rgba(255,215,0,0.3)" stroke-width="1" />
+    <text x="14" y="20" font-family="sans-serif" font-size="9" font-weight="700" fill="#fff">PRIMARY STORAGE</text>
+    <text x="14" y="34" font-family="monospace" font-size="8" fill="#ffd700">PostgreSQL / MongoDB</text>
+    <text x="14" y="46" font-family="monospace" font-size="8" fill="#888">Sequelize ORM Layer</text>
+  </g>
+
+  <!-- Node 5: AWS Cloud Pipeline -->
+  <g transform="translate(196, 180)">
+    <rect width="156" height="54" fill="#14120c" stroke="rgba(255,215,0,0.3)" stroke-width="1" />
+    <text x="14" y="20" font-family="sans-serif" font-size="9" font-weight="700" fill="#00e5ff">AWS CLOUD SERVICES</text>
+    <text x="14" y="34" font-family="monospace" font-size="8" fill="#ffd700">S3 Events + Lambda</text>
+    <text x="14" y="46" font-family="monospace" font-size="8" fill="#888">Adaptive HLS Video</text>
+  </g>
+
+  <!-- Bottom Metric Bar in Left Block -->
+  <rect x="42" y="250" width="310" height="48" fill="#0e0b06" stroke="rgba(255,215,0,0.4)" stroke-width="1" />
+  <text x="56" y="270" font-family="sans-serif" font-size="8" font-weight="700" fill="#aaa">SYSTEM EFFICIENCY</text>
+  <text x="56" y="287" font-family="'Orbitron', sans-serif" font-size="14" font-weight="700" fill="#ffd700">45% FASTER APIS</text>
+  <text x="210" y="270" font-family="sans-serif" font-size="8" font-weight="700" fill="#aaa">CODE REUSE</text>
+  <text x="210" y="287" font-family="'Orbitron', sans-serif" font-size="14" font-weight="700" fill="#00e5ff">95% CROSS-PLATFORM</text>
+
+  <!-- Right: Real-Time Telemetry & Radar Graph -->
+  <rect x="376" y="70" width="200" height="246" fill="url(#cardGrad)" stroke="rgba(255,215,0,0.25)" stroke-width="1.5" />
+  <text x="392" y="96" font-family="'Orbitron', sans-serif" font-size="11" font-weight="700" fill="#ffd700" letter-spacing="1">TELEMETRY STATS</text>
+
+  <!-- Waveform graph -->
+  <g transform="translate(392, 112)">
+    <rect width="168" height="80" fill="#080603" stroke="rgba(255,215,0,0.2)" stroke-width="1" />
+    <line x1="0" y1="20" x2="168" y2="20" stroke="rgba(255,215,0,0.1)" stroke-dasharray="2 2" />
+    <line x1="0" y1="40" x2="168" y2="40" stroke="rgba(255,215,0,0.1)" stroke-dasharray="2 2" />
+    <line x1="0" y1="60" x2="168" y2="60" stroke="rgba(255,215,0,0.1)" stroke-dasharray="2 2" />
+    <path d="M 0 65 Q 20 40 40 55 T 80 25 T 120 45 T 168 15" fill="none" stroke="#ffd700" stroke-width="2.5" filter="url(#glowEffect)" />
+    <path d="M 0 70 Q 20 50 40 60 T 80 40 T 120 55 T 168 30" fill="none" stroke="#00e5ff" stroke-width="1.5" />
+    <text x="6" y="14" font-family="monospace" font-size="8" fill="#ffd700">PEAK NITRO ENGINE</text>
+  </g>
+
+  <!-- Stat meters -->
+  <g transform="translate(392, 208)">
+    <text x="0" y="10" font-family="sans-serif" font-size="8" font-weight="700" fill="#aaa">TOP SPEED // LOGIC</text>
+    <text x="168" y="10" font-family="monospace" font-size="8" font-weight="700" fill="#ffd700" text-anchor="end">98%</text>
+    <rect y="16" width="168" height="6" fill="#221b0d" />
+    <rect y="16" width="164" height="6" fill="url(#goldGlow)" />
+
+    <text x="0" y="38" font-family="sans-serif" font-size="8" font-weight="700" fill="#aaa">ACCELERATION // SYNC</text>
+    <text x="168" y="38" font-family="monospace" font-size="8" font-weight="700" fill="#ffd700" text-anchor="end">96%</text>
+    <rect y="44" width="168" height="6" fill="#221b0d" />
+    <rect y="44" width="161" height="6" fill="url(#goldGlow)" />
+
+    <text x="0" y="66" font-family="sans-serif" font-size="8" font-weight="700" fill="#aaa">NITRO // LATENCY REDUCTION</text>
+    <text x="168" y="66" font-family="monospace" font-size="8" font-weight="700" fill="#00e5ff" text-anchor="end">99%</text>
+    <rect y="72" width="168" height="6" fill="#221b0d" />
+    <rect y="72" width="166" height="6" fill="#00e5ff" />
+  </g>
+</svg>
