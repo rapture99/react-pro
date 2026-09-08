@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#071810" />
+      <stop offset="50%" stop-color="#030d08" />
+      <stop offset="100%" stop-color="#010503" />
+    </linearGradient>
+    <linearGradient id="greenGold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#ffd700" />
+    </linearGradient>
+    <linearGradient id="cardGrad5" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(16, 185, 129, 0.08)" />
+      <stop offset="100%" stop-color="rgba(7, 24, 16, 0.7)" />
+    </linearGradient>
+    <pattern id="gridPattern5" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="rgba(16, 185, 129, 0.08)" stroke-width="1" />
+    </pattern>
+    <filter id="glowGreen">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="340" fill="url(#bgGrad5)" />
+  <rect width="600" height="340" fill="url(#gridPattern5)" />
+
+  <!-- Accent lines -->
+  <path d="M-20 60 L140 -20 M520 360 L620 260" stroke="rgba(16,185,129,0.18)" stroke-width="2" />
+
+  <!-- Top Header Bar -->
+  <rect x="24" y="20" width="552" height="38" fill="rgba(5,20,13,0.9)" stroke="#10b981" stroke-width="1.5" />
+  <path d="M24 20 L40 20 L32 58 L24 58 Z" fill="#10b981" />
+  <text x="50" y="44" font-family="'Orbitron', 'Impact', sans-serif" font-size="13" font-weight="700" fill="#10b981" letter-spacing="2">// BLACKLIST #05 : MAHARASHTRA GOVT VERIFICATION PORTAL</text>
+  <rect x="424" y="28" width="140" height="22" fill="#ffd700" rx="2" />
+  <text x="494" y="43" font-family="monospace" font-size="10" font-weight="700" fill="#000" text-anchor="middle">50K+ CITIZENS SERVED</text>
+
+  <!-- QR Authentication & Portal Diagram -->
+  <rect x="24" y="70" width="350" height="246" fill="url(#cardGrad5)" stroke="rgba(16,185,129,0.3)" stroke-width="1.5" />
+  <text x="40" y="96" font-family="'Orbitron', sans-serif" font-size="11" font-weight="700" fill="#ffd700" letter-spacing="1.5">CRYPTOGRAPHIC QR VERIFICATION PIPELINE</text>
+
+  <!-- QR Code Scanner Box -->
+  <g transform="translate(42, 114)">
+    <rect width="120" height="62" fill="#0b2417" stroke="#10b981" stroke-width="1.5" rx="3" />
+    <text x="60" y="22" font-family="sans-serif" font-size="9" font-weight="700" fill="#10b981" text-anchor="middle">QR AUTH SCANNER</text>
+    <text x="60" y="38" font-family="monospace" font-size="8" fill="#fff" text-anchor="middle">Signed Credentials</text>
+    <text x="60" y="52" font-family="monospace" font-size="8" fill="#ffd700" text-anchor="middle">Zero Forgery Check</text>
+  </g>
+
+  <!-- Arrow to Digital Certificate -->
+  <g transform="translate(172, 134)">
+    <line x1="0" y1="10" x2="34" y2="10" stroke="#ffd700" stroke-width="2" stroke-dasharray="3 2" />
+    <polygon points="34,10 28,6 28,14" fill="#ffd700" />
+    <text x="17" y="2" font-family="monospace" font-size="7" fill="#10b981" text-anchor="middle">VERIFY</text>
+  </g>
+
+  <!-- Authenticity Certificate Generator -->
+  <g transform="translate(216, 114)">
+    <rect width="140" height="62" fill="#0b2417" stroke="#ffd700" stroke-width="1.5" rx="3" />
+    <text x="70" y="22" font-family="sans-serif" font-size="9" font-weight="700" fill="#ffd700" text-anchor="middle">DIGITAL CERTIFICATE</text>
+    <text x="70" y="38" font-family="monospace" font-size="8" fill="#fff" text-anchor="middle">Cryptographic Seal</text>
+    <text x="70" y="52" font-family="monospace" font-size="8" fill="#00e5ff" text-anchor="middle">Instant Citizen Issuance</text>
+  </g>
+
+  <!-- Citizen Scale Stats -->
+  <g transform="translate(42, 188)">
+    <rect width="314" height="52" fill="#05140d" stroke="rgba(16,185,129,0.4)" stroke-width="1" />
+    <text x="14" y="18" font-family="monospace" font-size="8" font-weight="700" fill="#ffd700">PUBLIC SECTOR HIGH-TRAFFIC CAMPAIGNS</text>
+    <rect x="14" y="26" width="286" height="8" fill="#030d08" />
+    <rect x="14" y="26" width="260" height="8" fill="url(#greenGold)" />
+    <text x="14" y="44" font-family="monospace" font-size="8" fill="#10b981">50,000+ Farmers &amp; Citizens Authenticated</text>
+  </g>
+
+  <!-- Bottom Metric Box -->
+  <rect x="42" y="252" width="314" height="50" fill="#05140d" stroke="rgba(255,215,0,0.4)" stroke-width="1" />
+  <text x="56" y="272" font-family="sans-serif" font-size="8" font-weight="700" fill="#aaa">CITIZENS SERVED</text>
+  <text x="56" y="290" font-family="'Orbitron', sans-serif" font-size="13" font-weight="700" fill="#10b981">50,000+ USERS</text>
+  <text x="200" y="272" font-family="sans-serif" font-size="8" font-weight="700" fill="#aaa">ACCESSIBILITY</text>
+  <text x="200" y="290" font-family="'Orbitron', sans-serif" font-size="13" font-weight="700" fill="#ffd700">WCAG 2.1 AA</text>
+
+  <!-- Right: Stack Badges -->
+  <rect x="386" y="70" width="190" height="246" fill="url(#cardGrad5)" stroke="rgba(16,185,129,0.3)" stroke-width="1.5" />
+  <text x="402" y="96" font-family="'Orbitron', sans-serif" font-size="11" font-weight="700" fill="#10b981" letter-spacing="1">TECH STACK</text>
+
+  <!-- Shield Icon -->
+  <g transform="translate(481, 155)">
+    <polygon points="0,-35 30,-20 30,15 0,35 -30,15 -30,-20" fill="rgba(16,185,129,0.15)" stroke="#10b981" stroke-width="2" filter="url(#glowGreen)" />
+    <polyline points="-12,0 -2,10 14,-8" fill="none" stroke="#ffd700" stroke-width="3" />
+  </g>
+
+  <!-- Chips -->
+  <g transform="translate(402, 218)">
+    <rect x="0" y="0" width="74" height="22" fill="#0b2417" stroke="#10b981" stroke-width="1" />
+    <text x="37" y="15" font-family="sans-serif" font-size="8" font-weight="700" fill="#fff" text-anchor="middle">Angular</text>
+
+    <rect x="80" y="0" width="74" height="22" fill="#0b2417" stroke="#ffd700" stroke-width="1" />
+    <text x="117" y="15" font-family="sans-serif" font-size="8" font-weight="700" fill="#ffd700" text-anchor="middle">PrimeNG</text>
+
+    <rect x="0" y="28" width="74" height="22" fill="#0b2417" stroke="#ffd700" stroke-width="1" />
+    <text x="37" y="43" font-family="sans-serif" font-size="8" font-weight="700" fill="#ffd700" text-anchor="middle">Node.js</text>
+
+    <rect x="80" y="28" width="74" height="22" fill="#0b2417" stroke="#00e5ff" stroke-width="1" />
+    <text x="117" y="43" font-family="sans-serif" font-size="8" font-weight="700" fill="#00e5ff" text-anchor="middle">QR Engine</text>
+  </g>
+</svg>

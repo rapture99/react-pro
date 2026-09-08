@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#071418" />
+      <stop offset="50%" stop-color="#040c0e" />
+      <stop offset="100%" stop-color="#020506" />
+    </linearGradient>
+    <linearGradient id="cyanGold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00e5ff" />
+      <stop offset="100%" stop-color="#ffd700" />
+    </linearGradient>
+    <linearGradient id="cardGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(0, 229, 255, 0.08)" />
+      <stop offset="100%" stop-color="rgba(7, 20, 24, 0.7)" />
+    </linearGradient>
+    <pattern id="gridPattern2" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="rgba(0, 229, 255, 0.08)" stroke-width="1" />
+    </pattern>
+    <filter id="glowCyan">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="340" fill="url(#bgGrad2)" />
+  <rect width="600" height="340" fill="url(#gridPattern2)" />
+
+  <!-- Accent lines -->
+  <path d="M-20 60 L140 -20 M520 360 L620 260" stroke="rgba(0,229,255,0.18)" stroke-width="2" />
+
+  <!-- Top Header Bar -->
+  <rect x="24" y="20" width="552" height="38" fill="rgba(5,15,18,0.9)" stroke="#00e5ff" stroke-width="1.5" />
+  <path d="M24 20 L40 20 L32 58 L24 58 Z" fill="#00e5ff" />
+  <text x="50" y="44" font-family="'Orbitron', 'Impact', sans-serif" font-size="13" font-weight="700" fill="#00e5ff" letter-spacing="2">// BLACKLIST #02 : KEEL OFFLINE SYNC ENGINE</text>
+  <rect x="444" y="28" width="120" height="22" fill="#ffd700" rx="2" />
+  <text x="504" y="43" font-family="monospace" font-size="10" font-weight="700" fill="#000" text-anchor="middle">ZERO DATA LOSS</text>
+
+  <!-- Dual Store Diagram Box -->
+  <rect x="24" y="70" width="350" height="246" fill="url(#cardGrad2)" stroke="rgba(0,229,255,0.3)" stroke-width="1.5" />
+  <text x="40" y="96" font-family="'Orbitron', sans-serif" font-size="11" font-weight="700" fill="#ffd700" letter-spacing="1.5">DUAL-STORE SYNCHRONIZATION TOPOLOGY</text>
+
+  <!-- Store 1: IndexedDB -->
+  <g transform="translate(42, 114)">
+    <rect width="130" height="60" fill="#0b1d22" stroke="#00e5ff" stroke-width="1.5" rx="3" />
+    <text x="65" y="24" font-family="sans-serif" font-size="10" font-weight="700" fill="#00e5ff" text-anchor="middle">IndexedDB STORE</text>
+    <text x="65" y="40" font-family="monospace" font-size="8" fill="#fff" text-anchor="middle">Browser / Web Cache</text>
+    <text x="65" y="52" font-family="monospace" font-size="8" fill="#ffd700" text-anchor="middle">Binary Blobs &amp; Attachments</text>
+  </g>
+
+  <!-- Bi-directional Sync Stream -->
+  <g transform="translate(182, 134)">
+    <line x1="0" y1="5" x2="34" y2="5" stroke="#ffd700" stroke-width="2" stroke-dasharray="3 2" />
+    <line x1="34" y1="15" x2="0" y2="15" stroke="#00e5ff" stroke-width="2" stroke-dasharray="3 2" />
+    <polygon points="34,5 28,1 28,9" fill="#ffd700" />
+    <polygon points="0,15 6,11 6,19" fill="#00e5ff" />
+    <text x="17" y="-2" font-family="monospace" font-size="7" fill="#ffd700" text-anchor="middle">RECONCILE</text>
+  </g>
+
+  <!-- Store 2: SQLite Engine -->
+  <g transform="translate(226, 114)">
+    <rect width="130" height="60" fill="#0b1d22" stroke="#00e5ff" stroke-width="1.5" rx="3" />
+    <text x="65" y="24" font-family="sans-serif" font-size="10" font-weight="700" fill="#00e5ff" text-anchor="middle">SQLite NATIVE STORE</text>
+    <text x="65" y="40" font-family="monospace" font-size="8" fill="#fff" text-anchor="middle">Mobile iOS / Android</text>
+    <text x="65" y="52" font-family="monospace" font-size="8" fill="#ffd700" text-anchor="middle">Local ACID Persistence</text>
+  </g>
+
+  <!-- Offline Queue Stream Diagram -->
+  <g transform="translate(42, 192)">
+    <rect width="314" height="48" fill="#061215" stroke="rgba(0,229,255,0.4)" stroke-width="1" />
+    <text x="14" y="20" font-family="monospace" font-size="9" font-weight="700" fill="#ffd700">OFFLINE MUTATION QUEUE [42 ACTIONS QUEUED]</text>
+    <rect x="14" y="28" width="286" height="10" fill="#02080a" />
+    <rect x="14" y="28" width="210" height="10" fill="url(#cyanGold)" />
+    <text x="230" y="36" font-family="monospace" font-size="8" fill="#fff">AUTO-FLUSH</text>
+  </g>
+
+  <!-- Bottom Metric Box -->
+  <rect x="42" y="252" width="314" height="50" fill="#050d10" stroke="rgba(255,215,0,0.4)" stroke-width="1" />
+  <text x="56" y="272" font-family="sans-serif" font-size="8" font-weight="700" fill="#aaa">NETWORK RESILIENCE</text>
+  <text x="56" y="290" font-family="'Orbitron', sans-serif" font-size="13" font-weight="700" fill="#00e5ff">100% AIR-GAP SURVIVAL</text>
+  <text x="210" y="272" font-family="sans-serif" font-size="8" font-weight="700" fill="#aaa">CONFLICT RESOLUTION</text>
+  <text x="210" y="290" font-family="'Orbitron', sans-serif" font-size="13" font-weight="700" fill="#ffd700">ZERO DATA COLLISION</text>
+
+  <!-- Right: Sync Telemetry & Protocol Status -->
+  <rect x="386" y="70" width="190" height="246" fill="url(#cardGrad2)" stroke="rgba(0,229,255,0.3)" stroke-width="1.5" />
+  <text x="402" y="96" font-family="'Orbitron', sans-serif" font-size="11" font-weight="700" fill="#00e5ff" letter-spacing="1">SYNC METRICS</text>
+
+  <!-- Circular Sync Pulse -->
+  <g transform="translate(481, 160)">
+    <circle r="42" fill="none" stroke="rgba(0,229,255,0.2)" stroke-width="2" />
+    <circle r="32" fill="none" stroke="#00e5ff" stroke-width="2" stroke-dasharray="8 4" filter="url(#glowCyan)" />
+    <circle r="20" fill="rgba(0,229,255,0.15)" stroke="#ffd700" stroke-width="1.5" />
+    <polygon points="0,-10 8,5 -8,5" fill="#ffd700" />
+    <polygon points="0,10 -8,-5 8,-5" fill="#00e5ff" />
+  </g>
+
+  <!-- Tech Badges on Right -->
+  <g transform="translate(402, 226)">
+    <rect x="0" y="0" width="76" height="22" fill="#091c20" stroke="#00e5ff" stroke-width="1" />
+    <text x="38" y="15" font-family="sans-serif" font-size="8" font-weight="700" fill="#fff" text-anchor="middle">React Native</text>
+
+    <rect x="82" y="0" width="76" height="22" fill="#091c20" stroke="#ffd700" stroke-width="1" />
+    <text x="120" y="15" font-family="sans-serif" font-size="8" font-weight="700" fill="#ffd700" text-anchor="middle">Expo Managed</text>
+
+    <rect x="0" y="28" width="76" height="22" fill="#091c20" stroke="#ffd700" stroke-width="1" />
+    <text x="38" y="43" font-family="sans-serif" font-size="8" font-weight="700" fill="#ffd700" text-anchor="middle">SQLite Engine</text>
+
+    <rect x="82" y="28" width="76" height="22" fill="#091c20" stroke="#00e5ff" stroke-width="1" />
+    <text x="120" y="43" font-family="sans-serif" font-size="8" font-weight="700" fill="#fff" text-anchor="middle">IndexedDB</text>
+  </g>
+</svg>

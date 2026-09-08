@@ -1,0 +1,1507 @@
+/*
+ * Block-level styling for every component. Class names match the markup the
+ * skeleton already shipped — no component needed renaming to be themed.
+ */
+
+/* ── Hero ─────────────────────────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(var(--space-16), 14vw, var(--space-24));
+  border-bottom: var(--border-width) solid var(--color-border);
+  background:
+    radial-gradient(120% 90% at 12% 0%, rgb(255 215 0 / 8%) 0%, transparent 55%),
+    var(--color-bg);
+}
+
+/* Oversized ghosted wordmark bled off the right edge, like a menu backdrop. */
+.hero::before {
+  content: 'MOST WANTED';
+  position: absolute;
+  right: -4%;
+  top: 50%;
+  transform: translateY(-50%) skewX(-8deg);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(5rem, 18vw, 15rem);
+  line-height: 0.8;
+  letter-spacing: -0.02em;
+  color: rgb(255 255 255 / 3%);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* Hazard rail down the left edge of the hero. */
+.hero::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background-image: var(--stripes);
+  background-size: 20px 20px;
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* Single column on mobile, 60% / 40% split on tablet & desktop */
+@media (min-width: 992px) {
+  .hero__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    gap: var(--space-8);
+    align-items: center;
+  }
+}
+
+.hero__showcase {
+  margin-top: var(--space-8);
+  width: 100%;
+  min-width: 0;
+}
+
+@media (min-width: 992px) {
+  .hero__showcase {
+    margin-top: 0;
+    width: 100%;
+  }
+}
+
+.hero__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-3);
+}
+
+.hero__name {
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 11vw, 7rem);
+  font-weight: 700;
+  line-height: 0.86;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  /* Hairline yellow offset behind the type — a cheap chrome/decal edge. */
+  text-shadow: 4px 4px 0 rgb(255 215 0 / 18%);
+}
+
+.hero__role {
+  margin-top: var(--space-4);
+  font-size: clamp(1.125rem, 2.6vw, 1.75rem);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-accent);
+}
+
+.hero__location {
+  margin-top: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+.hero__actions {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  margin-top: var(--space-8);
+}
+
+.hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-8);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  border: 2px solid var(--color-accent);
+  transition:
+    background 120ms linear,
+    color 120ms linear,
+    box-shadow 120ms linear;
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--notch-sm)) 0,
+    100% var(--notch-sm),
+    100% 100%,
+    var(--notch-sm) 100%,
+    0 calc(100% - var(--notch-sm))
+  );
+}
+
+.hero__cta--primary {
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+}
+
+.hero__cta--primary:hover {
+  box-shadow: 0 0 24px var(--color-accent-glow);
+}
+
+.hero__cta--secondary {
+  background: transparent;
+  color: var(--color-accent);
+}
+
+.hero__cta--secondary:hover {
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+}
+
+/* ── Blacklist dossier ────────────────────────────────────────────────────
+ * The MW2005 rival card: rank badge, spotlit stage holding the car and the
+ * character cutout, name plate along the bottom.
+ */
+.blacklist {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  margin-inline: auto;
+  background:
+    linear-gradient(180deg, rgb(255 215 0 / 6%) 0%, transparent 42%),
+    var(--color-surface);
+  border: var(--border-width) solid var(--color-border-strong);
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--notch)) 0,
+    100% var(--notch),
+    100% 100%,
+    var(--notch) 100%,
+    0 calc(100% - var(--notch))
+  );
+  overflow: hidden;
+}
+
+/* Rank badge — sits top-left so it never collides with the clipped corner. */
+.blacklist__rank {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--space-3) var(--space-4) var(--space-3) var(--space-4);
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
+}
+
+.blacklist__rank-label {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  line-height: 1;
+  opacity: 0.75;
+}
+
+.blacklist__rank-num {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.01em;
+}
+
+/*
+ * The stage. `isolation` keeps the spotlight's blend contained, and the fixed
+ * aspect ratio stops the card collapsing before the images land.
+ */
+.blacklist__stage {
+  position: relative;
+  isolation: isolate;
+  aspect-ratio: 5 / 6;
+  min-height: 300px;
+  display: grid;
+  place-items: end center;
+  /* Clears the rank badge above and the hazard rail either side. Kept
+     symmetric so the grid-centred figure lines up with the absolutely
+     positioned car — asymmetric padding offsets one but not the other. */
+  padding: calc(var(--space-16) + var(--space-2)) var(--space-6) 0;
+  overflow: hidden;
+}
+
+/* Spotlight cone behind both cutouts. */
+.blacklist__spot {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(60% 55% at 50% 88%, rgb(255 215 0 / 20%) 0%, transparent 70%),
+    radial-gradient(90% 70% at 50% 0%, rgb(255 255 255 / 6%) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* Floor ellipse — grounds the figure so it doesn't float. */
+.blacklist__stage::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 6%;
+  z-index: 0;
+  width: 68%;
+  height: 26px;
+  transform: translateX(-50%);
+  background: radial-gradient(50% 50% at 50% 50%, rgb(0 0 0 / 75%) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/*
+ * Centred with `inset-inline`, NOT `left:50% + translateX(-50%)`. Framer Motion
+ * animates `x` by writing the element's `transform` outright, which silently
+ * discards a CSS translate and throws the car off-centre.
+ */
+.blacklist__car {
+  position: absolute;
+  inset-inline: 5%;
+  bottom: 7%;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+}
+
+.blacklist__car-img {
+  width: 100%;
+  height: auto;
+  /* Sits behind the figure, so knock it back and let the spotlight do the work. */
+  filter: drop-shadow(0 18px 22px rgb(0 0 0 / 70%)) saturate(0.85) brightness(0.9);
+}
+
+/* Empty state: stack the two slots instead of overlapping them. */
+.blacklist__stage[data-empty='true'] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-3);
+  padding-bottom: var(--space-6);
+}
+
+.blacklist__stage[data-empty='true'] .blacklist__car {
+  position: static;
+  inset: auto;
+  width: 100%;
+}
+
+.blacklist__stage[data-empty='true'] .blacklist__character {
+  width: 100%;
+}
+
+.blacklist__character {
+  position: relative;
+  z-index: 2;
+  width: 78%;
+  max-height: 100%;
+  display: grid;
+  place-items: end center;
+}
+
+.blacklist__character-img {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+  filter: drop-shadow(0 12px 18px rgb(0 0 0 / 80%));
+}
+
+/* Name plate. */
+.blacklist__plate {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+  padding: var(--space-4) var(--space-4);
+  border-top: var(--border-accent) solid var(--color-accent);
+  background: rgba(5, 5, 5, 0.92);
+}
+
+.blacklist__plate-alias {
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: 0.18em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.blacklist__plate-name {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  line-height: 1;
+  color: #ffffff;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.9);
+  margin-block: 2px;
+}
+
+.blacklist__plate-role {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* Hazard rail down the card's left edge. */
+.blacklist__stripes {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  z-index: 3;
+  background-image: var(--stripes);
+  background-size: 18px 18px;
+  pointer-events: none;
+}
+
+/* ── Empty image slots ────────────────────────────────────────────────────
+ * Shown only until the PNGs exist. Names the exact path so the drop location
+ * is obvious from the page itself.
+ */
+.slot {
+  display: grid;
+  place-items: center;
+  gap: var(--space-2);
+  width: 100%;
+  padding: var(--space-6) var(--space-4);
+  border: 1px dashed var(--color-border-strong);
+  color: var(--color-text-dim);
+  text-align: center;
+}
+
+.slot--character {
+  min-height: 190px;
+  background: rgb(255 255 255 / 2%);
+}
+
+.slot--car {
+  min-height: 92px;
+  background: rgb(255 255 255 / 1.5%);
+}
+
+.slot__label {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+}
+
+.slot__path {
+  font-family: var(--font-mono);
+  font-size: 0.5625rem;
+  letter-spacing: 0.04em;
+  color: var(--color-accent-dim);
+  overflow-wrap: anywhere;
+}
+
+/* ── About ────────────────────────────────────────────────────────────────── */
+.about__summary {
+  max-width: 62ch;
+  font-size: clamp(1rem, 1.6vw, 1.1875rem);
+  line-height: 1.75;
+  color: var(--color-text-muted);
+  border-left: var(--border-accent) solid var(--color-accent);
+  padding-left: var(--space-6);
+}
+
+/* ── Skills ───────────────────────────────────────────────────────────────── */
+.skills {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+.skill-group {
+  height: 100%;
+  padding: var(--space-6);
+  border-top: var(--border-accent) solid var(--color-border-strong);
+  transition: border-color 140ms linear;
+}
+
+.skills__item:hover .skill-group {
+  border-top-color: var(--color-accent);
+}
+
+.skill-group > .tag {
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+.skill-group__label {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  margin-bottom: var(--space-4);
+}
+
+.skill-group__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.skill-group__chip {
+  padding: var(--space-1) var(--space-3);
+  border: var(--border-width) solid var(--color-border-strong);
+  background: rgb(255 255 255 / 3%);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  transition:
+    color 100ms linear,
+    border-color 100ms linear;
+}
+
+.skill-group__chip:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+/* ── Experience timeline ──────────────────────────────────────────────────── */
+.timeline {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.job {
+  height: 100%;
+  padding: var(--space-8);
+}
+
+.job__header {
+  padding-bottom: var(--space-4);
+  margin-bottom: var(--space-6);
+  border-bottom: var(--border-width) solid var(--color-border);
+}
+
+.job__header > .tag {
+  display: inline-flex;
+  margin-bottom: var(--space-3);
+}
+
+.job__role {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  line-height: 1.05;
+}
+
+.job__company {
+  margin-top: var(--space-2);
+  font-size: 0.9375rem;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-accent);
+}
+
+.job__location {
+  color: var(--color-text-muted);
+}
+
+.job__separator {
+  color: var(--color-text-dim);
+}
+
+.job__dates {
+  margin-top: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-text-dim);
+  text-transform: uppercase;
+}
+
+/* Current role gets the live marker treatment. */
+.job[data-current='true'] .job__date--end {
+  color: var(--color-accent);
+}
+
+.job__highlights {
+  display: grid;
+  gap: var(--space-5, var(--space-4));
+}
+
+.highlight {
+  position: relative;
+  padding-left: var(--space-6);
+}
+
+/* Skewed yellow tick per highlight — the recurring motif from the headings. */
+.highlight::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.45em;
+  width: 8px;
+  height: 8px;
+  background: var(--color-accent);
+  transform: skewX(-14deg);
+}
+
+.highlight__title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  margin-bottom: var(--space-1);
+}
+
+.highlight__description {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  font-family: var(--font-sans);
+  font-weight: 300;
+}
+
+.highlight__metric {
+  display: inline-block;
+  margin-top: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+/* ── Education ────────────────────────────────────────────────────────────── */
+.education {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.edu-card {
+  height: 100%;
+  padding: var(--space-6);
+  border-left: var(--border-accent) solid var(--color-border-strong);
+  transition: border-color 140ms linear;
+}
+
+.education__item:hover .edu-card {
+  border-left-color: var(--color-accent);
+}
+
+.edu-card__degree {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  line-height: 1.2;
+}
+
+.edu-card__institution {
+  margin-top: var(--space-2);
+  font-size: 0.9375rem;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+}
+
+.edu-card__location {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.edu-card__dates {
+  margin-top: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-text-dim);
+  text-transform: uppercase;
+}
+
+/* ── Contact ──────────────────────────────────────────────────────────────── */
+.contact__lead {
+  max-width: 56ch;
+  font-size: clamp(1rem, 1.6vw, 1.125rem);
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-8);
+}
+
+.contact-list {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.contact-list__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5, var(--space-4));
+  background: var(--color-surface);
+  border: var(--border-width) solid var(--color-border-strong);
+  transition:
+    border-color 140ms linear,
+    background 140ms linear;
+}
+
+.contact-list__item:hover {
+  border-color: var(--color-accent);
+  background: var(--color-surface-raised);
+}
+
+.contact-list__icon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  background: rgb(255 215 0 / 10%);
+  color: var(--color-accent);
+}
+
+.contact-list__text {
+  min-width: 0;
+}
+
+.contact-list__label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-text-dim);
+  text-transform: uppercase;
+}
+
+.contact-list__value {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  overflow-wrap: anywhere;
+}
+
+.contact-list__value--link:hover {
+  color: var(--color-accent);
+}
+
+/*
+ * Once the dossier appears (>=960px) the ghosted wordmark would run straight
+ * through it and poke out either side, reading as a glitch rather than a
+ * watermark. Re-anchor it low-left so it backs the type column instead.
+ */
+@media (min-width: 960px) {
+  .hero::before {
+    right: auto;
+    left: 1%;
+    top: auto;
+    bottom: -5%;
+    transform: skewX(-8deg);
+    font-size: clamp(4rem, 9vw, 8.5rem);
+  }
+}
+
+/*
+ * Stacked (<960px) the showcase would run full-bleed, and the 5/6 stage ratio
+ * then makes the card taller than the viewport. Cap and centre it instead.
+ */
+@media (max-width: 959px) {
+  .hero__showcase {
+    max-width: 100%;
+    margin-inline: auto;
+  }
+}
+
+/* ── 2005 Amber Sepia & Glare Tint Overlay ──────────────────────────────── */
+.app--sepia-glare {
+  position: relative;
+}
+
+.app--sepia-glare::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background:
+    radial-gradient(ellipse 120% 70% at 50% -10%, rgba(255, 185, 0, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 100% 100% at 50% 50%, transparent 50%, rgba(0, 0, 0, 0.4) 100%);
+  mix-blend-mode: color-dodge;
+  filter: contrast(1.08) saturate(1.1);
+}
+
+/* ── Heat & Bounty Telemetry Bar ────────────────────────────────────────── */
+.heat-bar {
+  background: #000;
+  border-bottom: 2px solid var(--color-border-strong);
+  font-family: var(--font-mono);
+  position: sticky;
+  top: 0;
+  z-index: 101;
+}
+
+.heat-bar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: var(--space-2);
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.heat-bar__heat-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(90deg, var(--color-heat-fire) 0%, var(--color-heat-amber) 100%);
+  color: #000;
+  padding: 3px 10px;
+  font-weight: 700;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+}
+
+.heat-bar__flame-icon {
+  animation: flame-flicker 1.2s infinite ease-in-out;
+}
+
+@keyframes flame-flicker {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.15); opacity: 0.85; }
+}
+
+.heat-bar__heat-title {
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+}
+
+.heat-bar__heat-level {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  line-height: 1;
+}
+
+.heat-bar__stats {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.heat-bar__stat {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 640px) {
+  .heat-bar__stat--desktop {
+    display: none;
+  }
+}
+
+.heat-bar__stat-label {
+  font-size: 0.625rem;
+  color: var(--color-text-dim);
+  letter-spacing: var(--tracking-wider);
+}
+
+.heat-bar__stat-val {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.heat-bar__stat-val--alert {
+  color: #00ff66;
+}
+
+.heat-bar__actions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.heat-bar__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.heat-bar__btn:hover,
+.heat-bar__btn--active {
+  background: var(--color-accent);
+  color: #000;
+  border-color: var(--color-accent);
+}
+
+/* ── Header Right & EA Trax ────────────────────────────────────────────── */
+.site-header__right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.ea-trax {
+  position: relative;
+}
+
+.ea-trax__pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(20, 20, 20, 0.9);
+  border: 1px solid var(--color-border-strong);
+  padding: 3px 10px;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}
+
+.ea-trax__btn {
+  background: none;
+  border: none;
+  color: var(--color-accent);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  padding: 2px;
+}
+
+.ea-trax__btn:hover {
+  color: #fff;
+}
+
+.ea-trax__info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  cursor: pointer;
+  max-width: 220px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.ea-trax__title {
+  color: #fff;
+  font-weight: 700;
+}
+
+.ea-trax__artist {
+  color: var(--color-text-dim);
+}
+
+.ea-trax__icon--spinning {
+  animation: spin 3s linear infinite;
+  color: var(--color-accent);
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+.ea-trax__eq {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 12px;
+}
+
+.eq-bar {
+  width: 2px;
+  background: var(--color-accent);
+  animation: eq-bounce 0.6s infinite ease-in-out alternate;
+}
+
+.eq-bar--1 { height: 40%; animation-delay: 0.1s; }
+.eq-bar--2 { height: 100%; animation-delay: 0.3s; }
+.eq-bar--3 { height: 70%; animation-delay: 0.2s; }
+.eq-bar--4 { height: 50%; animation-delay: 0.4s; }
+
+@keyframes eq-bounce {
+  0% { height: 20%; }
+  100% { height: 100%; }
+}
+
+.ea-trax__banner {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  background: #0a0a0a;
+  border-left: 4px solid var(--color-accent);
+  padding: 8px 14px;
+  min-width: 260px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  animation: slide-down 0.25s ease-out;
+}
+
+@keyframes slide-down {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.ea-trax__banner-header {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  color: var(--color-accent);
+  letter-spacing: 0.15em;
+}
+
+.ea-trax__banner-song {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.ea-trax__banner-by {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  color: var(--color-text-muted);
+}
+
+/* ── Speedometer & Tachometer HUD ────────────────────────────────────────── */
+.speedo-hud {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.speedo-hud__container {
+  background: rgba(10, 10, 10, 0.94);
+  border: 1px solid var(--color-border-strong);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.9);
+  padding: 10px;
+  clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+}
+
+.speedo-hud__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  padding-bottom: 4px;
+}
+
+.speedo-hud__body {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 6px;
+}
+
+.speedo-hud__dial-wrapper {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+.speedo-hud__dial-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.speedo-hud__needle {
+  position: absolute;
+  top: 10px;
+  left: 59px;
+  width: 2px;
+  height: 50px;
+  background: var(--color-accent);
+  transform-origin: bottom center;
+  box-shadow: 0 0 8px var(--color-accent);
+}
+
+.speedo-hud__center-cap {
+  position: absolute;
+  top: 52px;
+  left: 52px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #222;
+  border: 2px solid var(--color-accent);
+}
+
+.speedo-hud__readout {
+  position: absolute;
+  bottom: 22px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.speedo-hud__gear {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  line-height: 1;
+}
+
+.speedo-hud__gear-label {
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  color: var(--color-text-dim);
+}
+
+.speedo-hud__stats {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.speedo-hud__speed-box,
+.speedo-hud__rpm-box {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  font-family: var(--font-display);
+}
+
+.speedo-hud__speed-val {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+}
+
+.speedo-hud__rpm-val {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.speedo-hud__unit {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  color: var(--color-accent);
+}
+
+.speedo-hud__nos-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #00d2ff 0%, #0066ff 100%);
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.speedo-hud__nos-btn:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 16px var(--color-nos-glow);
+}
+
+.speedo-hud__nos-btn--active {
+  animation: nos-pulse 0.2s infinite alternate;
+}
+
+@keyframes nos-pulse {
+  from { filter: brightness(1); }
+  to { filter: brightness(1.6); }
+}
+
+.nos-screen-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  background: radial-gradient(circle at center, rgba(0, 210, 255, 0.25) 0%, rgba(0, 0, 0, 0.6) 100%);
+  box-shadow: inset 0 0 100px rgba(0, 210, 255, 0.5);
+}
+
+/* ── Blacklist Browser ─────────────────────────────────────────────────── */
+.blacklist-browser {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: var(--space-4);
+  background: rgba(10, 10, 10, 0.85);
+  border: 1px solid var(--color-border-strong);
+  padding: var(--space-4);
+  clip-path: polygon(0 0, calc(100% - var(--notch)) 0, 100% var(--notch), 100% 100%, 0 100%);
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  .blacklist-browser {
+    grid-template-columns: 1fr;
+  }
+}
+
+.blacklist-browser__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-bottom: var(--space-3);
+  margin-bottom: var(--space-3);
+  border-bottom: 2px solid var(--color-accent);
+  color: var(--color-accent);
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: var(--tracking-wider);
+}
+
+.blacklist-browser__list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.blacklist-tab {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  padding: 8px 12px;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s ease;
+}
+
+.blacklist-tab:hover,
+.blacklist-tab--active {
+  background: var(--color-surface-raised);
+  border-color: var(--color-accent);
+  color: #fff;
+}
+
+.blacklist-tab--active {
+  border-left: 4px solid var(--color-accent);
+}
+
+.blacklist-tab__rank {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.blacklist-tab__info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.blacklist-tab__alias {
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.blacklist-tab__name {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  color: var(--color-text-dim);
+}
+
+.blacklist-tab__bounty {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--color-accent);
+}
+
+.blacklist-browser__stage {
+  display: grid;
+  grid-template-columns: minmax(0, 290px) minmax(0, 1fr);
+  gap: var(--space-4);
+  align-items: start;
+  min-width: 0;
+}
+
+@media (max-width: 1250px) {
+  .blacklist-browser__stage {
+    grid-template-columns: 1fr;
+  }
+}
+
+.blacklist-browser__specs {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  padding: var(--space-4);
+}
+
+.blacklist-browser__specs-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  color: var(--color-accent);
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-2);
+}
+
+.blacklist-browser__ride-name {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: var(--space-2);
+}
+
+.blacklist-browser__bio {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin-bottom: var(--space-4);
+}
+
+.blacklist-browser__stat-bars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.tuner-bar,
+.tuner-mini {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tuner-bar__label,
+.tuner-mini__label {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  color: var(--color-text-dim);
+  letter-spacing: 0.1em;
+}
+
+.tuner-bar__track,
+.tuner-mini__track {
+  height: 8px;
+  background: #1c1c1c;
+  border: 1px solid #333;
+  overflow: hidden;
+}
+
+.tuner-bar__fill,
+.tuner-mini__fill {
+  height: 100%;
+  background: var(--color-accent);
+  transition: width 0.3s ease-out;
+}
+
+.tuner-bar__fill--nos,
+.tuner-mini__fill--nos {
+  background: linear-gradient(90deg, #00d2ff 0%, #0066ff 100%);
+}
+
+.tuner-bar__val {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--color-accent);
+  align-self: flex-end;
+}
+
+.blacklist-browser__tech-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* ── Skill Group Tuner Sheet ────────────────────────────────────────────── */
+.skill-group__tuner-sheet {
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px dashed var(--color-border-strong);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ── Card Cutout Graphics ───────────────────────────────────────────────── */
+.slot__svg-car,
+.slot__svg-driver {
+  width: 100%;
+  max-height: 140px;
+}
+
+.blacklist__bounty-tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family: var(--font-mono);
+}
+
+.blacklist__heat {
+  font-size: 0.6875rem;
+  color: var(--color-heat-fire);
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-weight: 700;
+}
+
+.blacklist__bounty {
+  font-size: 0.75rem;
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.blacklist__plate-alias {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  color: var(--color-accent);
+  letter-spacing: 0.15em;
+}
+
+/* ── MW 2005 Rival Intro Graffiti & Industrial Backdrop ─────────────────── */
+.blacklist--hero {
+  max-width: 400px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.15);
+}
+
+.blacklist__graffiti {
+  position: absolute;
+  top: 55px;
+  left: 20px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.blacklist__graffiti-tag {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 800;
+  font-style: italic;
+  color: #fff;
+  letter-spacing: -0.03em;
+  transform: rotate(-6deg);
+  text-shadow:
+    3px 3px 0 #000,
+    -2px -2px 0 #000,
+    0 0 12px var(--color-accent);
+  line-height: 1;
+}
+
+.blacklist__graffiti-arrow {
+  width: 90px;
+  height: 35px;
+  margin-top: -4px;
+}
+
+.blacklist__industrial-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  background: radial-gradient(circle at 70% 30%, rgba(255, 215, 0, 0.15) 0%, transparent 65%);
+}
+
+.blacklist__stats {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(255, 215, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.blacklist__stat-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+}
+
+.blacklist__stat-name {
+  font-size: 0.5625rem;
+  color: var(--color-text-dim);
+  letter-spacing: 0.1em;
+  width: 75px;
+  flex-shrink: 0;
+}
+
+.blacklist__stat-track {
+  flex: 1;
+  height: 6px;
+  background: #181818;
+  border: 1px solid #333;
+  overflow: hidden;
+}
+
+.blacklist__stat-bar {
+  height: 100%;
+  background: var(--color-accent);
+  transition: width 0.4s ease-out;
+}
+
+.blacklist__stat-bar--nos {
+  background: linear-gradient(90deg, #00d2ff 0%, #0066ff 100%);
+}
+
+.blacklist__stat-num {
+  font-size: 0.625rem;
+  color: var(--color-accent);
+  font-weight: 700;
+  width: 20px;
+  text-align: right;
+}
+
+
+
