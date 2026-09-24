@@ -10,12 +10,16 @@ import Education from './components/sections/Education';
 import Contact from './components/sections/Contact';
 import HeatBountyBar from './components/ui/HeatBountyBar';
 import SpeedometerHud from './components/ui/SpeedometerHud';
+import SplashScreen from './components/ui/SplashScreen';
 
 export default function App() {
   const [isSepiaActive, setIsSepiaActive] = useState(true);
 
   return (
     <div className={`app ${isSepiaActive ? 'app--sepia-glare' : ''}`}>
+      {/* NFS Most Wanted (2005) Interactive Splash Loading Screen */}
+      <SplashScreen />
+
       <a className="skip-link" href="#main">
         Skip to content
       </a>
