@@ -35,7 +35,34 @@ export default function Projects() {
       <div className="projects">
         <div className="projects__toolbar">
           <p className="projects__lede">
-            Every build on the list, ranked by bounty. Open a dossier to drop into Speedbreaker.
+            Engineered a suite of full-stack developer tools and web applications, including{' '}
+            <a
+              href="https://github.com/rapture99/razorpay-seat-sandbox"
+              target="_blank"
+              rel="noreferrer"
+              style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}
+            >
+              Razorpay Seat Sandbox
+            </a>
+            , an offline-first simulation harness for auditing mid-cycle subscription proration and webhook idempotency;{' '}
+            <a
+              href="https://github.com/rapture99/Function-visualiser"
+              target="_blank"
+              rel="noreferrer"
+              style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}
+            >
+              Function Visualiser
+            </a>
+            , a Markdown-driven architectural tool rendering interactive 2D workflows and 3D spatial maps; and{' '}
+            <a
+              href="https://github.com/rapture99/Scorm-Builder"
+              target="_blank"
+              rel="noreferrer"
+              style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}
+            >
+              SCORM Builder
+            </a>
+            , a serverless browser-based authoring engine compiling multimedia and Excel quizzes into SCORM 1.2/2004 packages. Open a dossier below for full specs.
           </p>
 
           <div className="projects__views" role="group" aria-label="Blacklist view">
