@@ -281,5 +281,33 @@ export const resume: Resume = {
         githubUrl: 'https://github.com/rapture99/Scorm-Builder',
       },
     },
+    {
+      id: 'inline-console',
+      rank: '05',
+      alias: 'INLINE CONSOLE',
+      name: 'Inline Console Extension',
+      role: 'Developer Tooling & Instrumentation',
+      ride: 'Runtime Execution Engine (VS Code & Node.js Preload)',
+      bounty: '$7,200,000',
+      heat: 4,
+      bio: 'Built a zero-overhead VS Code extension that captures runtime errors and console logs inline without modifying original stdout or halting main thread execution.',
+      stats: { topSpeed: 94, acceleration: 90, handling: 95, nitro: 88 },
+      techStack: ['TypeScript', 'JavaScript', 'VS Code API', 'Node.js', 'Vite', 'WebSocket'],
+      projectImg: '/blacklist/project_inline_console.svg',
+      carImg: '/blacklist/porsche_gt3.jpg',
+      projectDetails: {
+        overview:
+          'A Developer Experience tool that hooks into Node.js and browser runtimes to route logged data and stack traces back to VS Code via IPC/WebSocket, displaying values inline at the exact line of execution.',
+        keyFeatures: [
+          'Automatic Node.js process instrumentation via terminal environment injection (--import / --require)',
+          'Depth/size-limited cycle-safe serialization tolerant of throwing getters and complex objects',
+          'Source map translation resolving generated runtime stacks back to original workspace file paths',
+          'Vite dev server plugin middleware and Next.js client runtime integration',
+        ],
+        performanceMetric: '40 calls/sec rate-limiting per line with unref’d socket connection',
+        challengesSolved:
+          'Capturing runtime call site positions accurate to source code lines without altering application stdout or causing memory leaks from unhandled object serialization.',
+      },
+    },
   ],
 };
